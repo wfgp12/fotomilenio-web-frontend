@@ -26,14 +26,20 @@ const LoginPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await loginService(values.user, values.password);
-    if (!response) return;
+    // const response = await loginService(values.user, values.password);
+    // if (!response) return;
 
-    const { user, token } = response;
+    // const { user, token } = response;
     dispatch(
       loginAction({
-        user,
-        token,
+        user: {
+          id:12,
+          name: 'Wilhen',
+          lastName:"Gutierrez",
+          numberPhone: '123345678',
+          email: 'wfgp1206@gmail.com',
+        },
+        token:'token de sesión',
       })
     );
     return;
