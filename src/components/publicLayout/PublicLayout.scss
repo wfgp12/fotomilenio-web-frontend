@@ -1,8 +1,13 @@
 .PublicLayout {
     display: flex;
     width: 100%;
+
+    background: linear-gradient(to top, var(--color-primary), var(--color-background), white);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    flex-direction: column-reverse;
     flex: 1;
-    flex-direction: column;
 
     &__content {
         display: flex;
@@ -10,27 +15,49 @@
         justify-content: center;
         align-items: center;
         width: calc(100% - 80px);
-        flex: 1;
+        flex: 3;
+        border-radius: 30px 30px 0px 0px;
+        z-index: 1;
         background-color: white;
-        border-radius: 15px 0 0 15px;
         padding: 40px;
+    }
+
+    &__logo-container {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 90vw;
+        }
     }
 }
 
 @media screen and (min-width: 600px) {
     .PublicLayout {
-        &__content {
-            align-self: flex-end;
-            width: 350px;
-            padding: 30px 80px 30px 50px;
+        flex-direction: row;
+        padding: 50px 100px;
 
-            box-shadow:
-                0px 0px 0.8px -4px rgba(0, 0, 0, 0.039),
-                0px 0px 2.5px -4px rgba(0, 0, 0, 0.059),
-                0px 0px 5.8px -4px rgba(0, 0, 0, 0.071),
-                0px 0px 12.1px -4px rgba(0, 0, 0, 0.077),
-                0px 0px 25.2px -4px rgba(0, 0, 0, 0.084),
-                0px 0px 72px -4px rgba(0, 0, 0, 0.11);
+        &__content {
+            width: 350px;
+            padding: 30px;
+            flex: none;
+            border-radius: 30px;
+
+            box-shadow: 9px 0PX 0px var(--color-primary-hv)
+        }
+
+        &__logo-container {
+            display: flex;
+            flex: 1;
+            justify-content: flex-end;
+            align-items: center;
+
+            img {
+                transform: rotate(90deg);
+                width: 90vh;
+            }
         }
     }
 }

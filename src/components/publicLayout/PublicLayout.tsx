@@ -7,6 +7,9 @@ const PublicLayout = ({ children }: { children: React.ReactNode }) => {
             <div className='PublicLayout__content'>
                 {children}
             </div>
+            <div className='PublicLayout__logo-container'>
+                <img src="src\assets\images\logo-fotomilenio.png" alt="Logo fotomilenio" />
+            </div>
         </div>
     )
 }

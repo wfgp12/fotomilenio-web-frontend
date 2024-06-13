@@ -19,21 +19,21 @@ import { useForm } from "../../hooks/useForm";
 const LoginPage = () => {
   const dispatch = useAppDispatch();
 
-  const {values, handleChange} = useForm<LoginForm>({
-    email: "",
-    password: ""
+  const { values, handleChange } = useForm<LoginForm>({
+    user: "",
+    password: "",
   });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await loginService(values.email, values.password);
+    const response = await loginService(values.user, values.password);
     if (!response) return;
 
     const { user, token } = response;
     dispatch(
       loginAction({
         user,
-        token
+        token,
       })
     );
     return;
@@ -41,39 +41,41 @@ const LoginPage = () => {
 
   return (
     <div className="LoginPage">
-      <div>
-        <h1>LOGIN PAGE</h1>
+      <div className="LoginPage__header">
+        <h1>LOGIN</h1>
       </div>
       <form id="loginForm" className="LoginPage__form" onSubmit={handleSubmit}>
-        <div className="LoginPage__form__field">
-          <label className="LoginPage__form__label">email :</label>
-          <input
-            type="email"
-            name="email"
-            className="LoginPage__form__input"
-            value={values.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="LoginPage__form__field">
-          <label className="LoginPage__form__label">password: </label>
-          <input
-            type="password"
-            name="password"
-            className="LoginPage__form__input"
-            value={values.password}
-            onChange={handleChange}
-            required
-            autoComplete="current-password"
-          />
+        <div>
+          <div className="LoginPage__form__field">
+            <label className="LoginPage__form__label">Usuario :</label>
+            <input
+              type="text"
+              name="user"
+              className="LoginPage__form__input"
+              placeholder="Ingrese su numero de cédula"
+              value={values.user}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="LoginPage__form__field">
+            <label className="LoginPage__form__label">Contraseña: </label>
+            <input
+              type="password"
+              name="password"
+              className="LoginPage__form__input"
+              placeholder="Escribe tu contraseña"
+              value={values.password}
+              onChange={handleChange}
+              required
+              autoComplete="current-password"
+            />
+          </div>
         </div>
         <button className="LoginPage__form__button" type="submit">
-          Log in
+          Iniciar Sesión
         </button>
       </form>
-      <p>you do not have an account</p>
-      <Link to="/register">Create Account</Link>
     </div>
   );
 };

@@ -24,19 +24,16 @@
   line-height: 1;
 
   // color-scheme: light dark;
-  color: var(--color-shuttle-gray);
+  color: var(--color-text);
   // background-color: #f9f9f9;
 
-  --color-royal-blue: #535BF2;
-  --color-cornflower-blue: #7775FF;
-  --color-melrose: #9991FF;
+  --color-primary: #FF2C38; 
+  --color-primary-hv: #A40101; 
+  --color-secondary: #7775FF;
   --color-melrose-light: #BAADFF;
-  --color-fog: #DBCBFF;
-  --color-shuttle-gray: #566573;
-  --color-gull-gray: #91A0AF;
-  --color-spun-pearl: #ADA9BB;
-  --color-link-water: #D0E0F0;
-  --color-magnolia:#FBF7FF;
+  --color-text: #272d33;
+  --color-input-border: #aaa9bb;
+  --color-background:#FBF7FF;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -47,11 +44,11 @@
 
 a {
   font-weight: 500;
-  color: var(--color-cornflower-blue);
+  color: var(--color-primary);
   text-decoration: none;
 
   &:hover {
-    color: var(--color-royal-blue);
+    color: var(--color-primary-hv);
   }
 }
 
@@ -62,9 +59,8 @@ body {
   overflow: hidden;
   min-width: 320px;
   min-height: 100vh;
-  background-color: var(--color-magnolia);
+  background-color: var(--color-background);
 }
-
 
 button {
   border-radius: 8px;
@@ -73,33 +69,37 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: var(--color-cornflower-blue);
+  background-color: var(--color-primary);
   color: white;
   cursor: pointer;
   transition: all 0.25s ease;
 
   &:hover {
-    background-color:var(--color-royal-blue);
+    background-color:var(--color-primary-hv);
   }
 
 }
 
 input {
-  background-color: var(--color-magnolia);
+  background-color: var(--color-background);
   border-radius: 8px;
-  color: var(--color-spun-pearl);
-  border: 2px solid var(--color-spun-pearl);
+  color: var(--color-input-border);
+  border: 2px solid var(--color-input-border);
   font-family: Poppins;
   padding: 5px 5px 5px 15px;
   font-weight: 200;
   letter-spacing: 1.3px;
   transition: all .25s ease;
+
+  &:valid{
+    border: 2px solid var(--color-primary);
+  }
   
   &:hover{
-    border: 2px solid var(--color-fog);
+    border: 2px solid var(--color-primary-hv);
   }
   &:focus-visible {
-    border: 2px solid var(--color-cornflower-blue);
+    border: 2px solid var(--color-primary);
     outline: none;
   }
 }

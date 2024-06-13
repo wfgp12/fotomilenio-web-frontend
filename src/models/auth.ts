@@ -6,7 +6,7 @@ export interface LoginResponse {
 }
 
 export interface LoginForm {
-    email: string,
+    user: string,
     password: string
 }
 
