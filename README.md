@@ -1,19 +1,35 @@
-# Project Base React vite TypeScript
+# Proyecto Fotomilenio Web
+
+Fotomilenio Web es una aplicación web construida con React para gestionar el personal del departamento de recursos humanos. La aplicación permite manejar la información de cada empleado y llevar el registro biométrico de entradas y salidas.
+
+## Requisitos Previos
+
+Antes de comenzar, asegúrate de tener las siguientes herramientas instaladas en tu máquina:
+
+- [Node.js](https://nodejs.org/) (versión recomendada)
+- Un navegador web moderno (como Chrome, Firefox, o Edge)
+- [Git](https://git-scm.com/) (opcional, pero recomendado para clonar el repositorio)
+
+## Configuración del Proyecto
+
+### 1. Clonar el Repositorio
+
+Clona el repositorio del proyecto desde GitHub a tu máquina local. Abre una terminal y ejecuta:
 
 ## Run Locally
 
 Clone the project
 
 ```bash
-  git clone 
+  git clone https://github.com/wfgp12/fotomilenio-web-frontend
   // or
-  git clone 
+  git clone git@github.com:wfgp12/fotomilenio-web-frontend.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd taller-3-microservicios && cd src
+  cd fotomilenio-web-frontend && cd src
 ```
 
 Install dependencies
@@ -27,38 +43,10 @@ Install dependencies
 Start the server
 
 ```bash
-  npm start
+  npm run dev
   //or
-  yarn start
+  yarn dev
 ```
-
-
-## Run in Docker
-
-Clone the project
-```bash
-  git clone 
-  // or
-  git clone 
-```
-
-Go to the project directory
-```bash
-  cd taller-3-microservicios
-```
-
-Build the container image on your local machine and start the container with the following command:
-```bash
-  docker-compose up --build --no-recreate -d
-```
-
-This command only needs to be run the first time, and whenever you make changes to the docker-compose.yml file. For subsequent runs, you can use:
-```bash
-  docker-compose up -d
-```
-With this, you will have the project up and running, either locally or via Docker.
-
-**IMPORTANT:!** It is necessary to have docker installed and running, to be able to run the above command line successfully.
 
 ## Tecnologias
 
