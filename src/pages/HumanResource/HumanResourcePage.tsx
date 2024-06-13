@@ -1,9 +1,13 @@
-
+// Libraries 
 import { Outlet } from 'react-router-dom'
+//Styles
+import "./HumanResourceStyle.scss"
 
 const HumanResourcePage = () => {
   return (
-    <Outlet/>
+    <div className='human-resource'>
+      <Outlet/>
+    </div>
   )
 }
 

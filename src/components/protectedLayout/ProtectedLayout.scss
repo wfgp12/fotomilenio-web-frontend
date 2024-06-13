@@ -104,6 +104,7 @@
             transition: 0.5s;
             color: var(--color-text);
             &--active{
+                @extend .protected-layout__side-bar__subitem;
                 color: var(--color-primary);
             }
         }
@@ -118,7 +119,6 @@
             color: var(--color-text);
             background: linear-gradient(to left, var(--color-primary-hv), var(--color-primary)) var(--color-primary);
             padding: 5px 15px;
-
             transition: all .2s ease;
 
             img {
@@ -140,16 +140,22 @@
 
             &--active {
                 transform: scale(1.02);
-                letter-spacing: 1.5px;
-                font-weight: bold;
                 background: var(--color-primary-hv);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
                 
                 color: white;
                 transition: all .2s ease;
 
                 &:hover {
                     background: var(--color-primary);
-                    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+                }
+            }
+
+            &__arrow{
+                transition: .5s ease;
+                &--open{
+                    transform: rotate(180deg);
+                    transition: .5s ease;
                 }
             }
         }

@@ -6,6 +6,7 @@ export const ProtectedRoutes = () => {
     let auth = useAppSelector(state => state.auth)
     let location = useLocation();
 
+    //TODO: agregar validación de autorización
     return (auth.isAuth)
         ? <Navigate to="/login" state={{ from: location }} replace />
         : <Outlet />

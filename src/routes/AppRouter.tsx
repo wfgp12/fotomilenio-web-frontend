@@ -8,9 +8,10 @@ import {
   LoginPage,
   NotFoundPage,
   HumanResourcePage,
-  AttendancePage,
+  SchedulePage,
   PayrollPage,
   DashBoardPage,
+  EventsPage,
 } from "../pages";
 // Assets-icons
 import HomeIcon from "./../assets/icons/home-outline.svg";
@@ -25,9 +26,9 @@ export const routes = [
     icon: HumanResourceIcon,
     subRoutes: [
       { path: "", element: <DashBoardPage />, label: "DashBoard" },
-      { path: "attendance", element: <AttendancePage />, label: "Asistencia" },
+      { path: "schedule", element: <SchedulePage />, label: "Horarios" },
       { path: "payroll", element: <PayrollPage />, label: "Nomina" },
-      //   { path: "events", element: <EventsPage /> },
+      { path: "events", element: <EventsPage />, label:"Eventos" },
     ],
   },
 ];
@@ -61,7 +62,7 @@ export const AppRouter = () => {
               <Route key={index} path={route.path} element={route.element}>
                 {route.subRoutes.map((subRoute, subIndex) => (
                   <Route
-                    key={subIndex}
+                    key={`${index}${subIndex}`}
                     path={subRoute.path}
                     element={subRoute.element}
                   />

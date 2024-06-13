@@ -33,7 +33,7 @@ const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
         <nav className="protected-layout__navBar">
             <div className="protected-layout__navBar__logo-container">
             <img
-                src="src\assets\images\logo-fotomilenio.png"
+                src="https://fotomilenio.b-cdn.net/wp-content/uploads/2024/05/Logo-3.png"
                 alt="logo fotomilenio"
             />
             </div>
@@ -48,13 +48,12 @@ const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
             <div className="protected-layout__side-bar">
             <div className="protected-layout__side-bar__menu">
                 {routes.map((route, index) => (
-                <>
+                <React.Fragment key={index}>
                     <NavLink
-                    key={index}
                     className={({ isActive }) =>
                         isActive
                         ? "protected-layout__side-bar__item protected-layout__side-bar__item--active"
-                        : " protected-layout__side-bar__item"
+                        : "protected-layout__side-bar__item"
                     }
                     to={route.path}
                     >
@@ -62,24 +61,26 @@ const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
                         <span>{route.label}</span>
                         {route.subRoutes && (
                             <button onClick={handleVisibilitySubMenu}>
-                            <img src={DownArrowIcon} alt="arrow" />
+                            <img src={DownArrowIcon} alt="arrow" className={isOpenSubmenu?"protected-layout__side-bar__item__arrow--open":"protected-layout__side-bar__item__arrow"}/>
                             </button>
                         )}
                     </NavLink>
                     {route.subRoutes && (
                     <div className={isOpenSubmenu?"protected-layout__side-bar__sub-menu--open":"protected-layout__side-bar__sub-menu"}>
-                        {route.subRoutes.map((subRoute, si) => (
-                        <NavLink
-                            key={si}
-                            to={`${route.path}/${subRoute.path}`}
-                            className="protected-layout__side-bar__subitem"
-                        >
-                            <span>{subRoute.label}</span>
-                        </NavLink>
+                        {route.subRoutes
+                            .filter(subRoute => subRoute.label.toLowerCase() !== 'dashboard')
+                            .map((subRoute, si) => (
+                                <NavLink
+                                    key={`${index}${si}`}
+                                    to={`${route.path}/${subRoute.path}`}
+                                    className={({ isActive }) => isActive?"protected-layout__side-bar__subitem--active":"protected-layout__side-bar__subitem"}
+                                >
+                                    <span>{subRoute.label}</span>
+                                </NavLink>
                         ))}
                     </div>
                     )}
-                </>
+                </React.Fragment>
                 ))}
             </div>
             <div className="protected-layout__side-bar__menu">
