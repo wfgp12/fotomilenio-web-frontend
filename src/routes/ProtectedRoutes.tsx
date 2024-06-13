@@ -6,7 +6,7 @@ export const ProtectedRoutes = () => {
     let auth = useAppSelector(state => state.auth)
     let location = useLocation();
 
-    return (!auth.isAuth)
+    return (auth.isAuth)
         ? <Navigate to="/login" state={{ from: location }} replace />
         : <Outlet />
 }
